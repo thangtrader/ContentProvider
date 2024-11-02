@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TinNhan">
-
     <TextView
         android:id="@+id/tv_info_tin_nhan"
         android:layout_width="wrap_content"
@@ -18,7 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
-
     <ListView
         android:id="@+id/lvTinNhan"
         android:layout_width="match_parent"

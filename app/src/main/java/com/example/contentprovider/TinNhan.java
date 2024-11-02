@@ -14,13 +14,10 @@ import androidx.core.content.ContextCompat;
 import java.util.ArrayList;
 
 public class TinNhan extends AppCompatActivity {
-
     private final int REQUEST_SMS_ASK_PERMISSIONS = 1002;
-
     ListView lvTinNhan;
     ArrayList<Message> dsTinNhan;
     ArrayAdapter<Message> adapterTinNhan;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +32,6 @@ public class TinNhan extends AppCompatActivity {
             showAllMessagesFromDevice();
         }
     }
-
     private void addControls() {
         lvTinNhan = findViewById(R.id.lvTinNhan);
         dsTinNhan = new ArrayList<>();
@@ -44,10 +40,8 @@ public class TinNhan extends AppCompatActivity {
         );
         lvTinNhan.setAdapter(adapterTinNhan);
     }
-
     private void showAllMessagesFromDevice() {
         Uri uri = Uri.parse("content://sms/inbox");
-
         Cursor cursor = getContentResolver().query(uri, null, null, null, null);
         if (cursor != null) {
             int addressIndex = cursor.getColumnIndex("address");
@@ -64,7 +58,6 @@ public class TinNhan extends AppCompatActivity {
         }
         adapterTinNhan.notifyDataSetChanged();
     }
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);

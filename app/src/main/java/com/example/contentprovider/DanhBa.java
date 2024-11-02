@@ -14,13 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
 public class DanhBa extends AppCompatActivity {
-
     private final int REQUEST_CONTACTS_ASK_PERMISSIONS = 1001;
-
     ListView lvDanhBa;
     ArrayList<Contact> dsDanhBa;
     ArrayAdapter<Contact> adapterDanhBa;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,10 +30,8 @@ public class DanhBa extends AppCompatActivity {
             showAllContactFromDevice();
         }
     }
-
     private void showAllContactFromDevice() {
         Uri uri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;
-
         Cursor cursor = getContentResolver().query(uri, null, null, null, null);
         if (cursor != null) {
             dsDanhBa.clear();
@@ -57,14 +52,12 @@ public class DanhBa extends AppCompatActivity {
             adapterDanhBa.notifyDataSetChanged();
         }
     }
-
     private void addControls() {
         lvDanhBa = findViewById(R.id.lvDanhBa);
         dsDanhBa = new ArrayList<>();
         adapterDanhBa = new ArrayAdapter<>(DanhBa.this, android.R.layout.simple_list_item_1, dsDanhBa);
         lvDanhBa.setAdapter(adapterDanhBa);
     }
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
